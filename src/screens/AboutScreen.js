@@ -13,12 +13,6 @@ const AboutScreen = () => {
       <Text style={styles.versionText}>
         Versión: 1.0.0
       </Text>
-      <Text style={styles.link} onPress={() => Linking.openURL('https://reactnative.dev/')}>
-        Desarrollado con React Native
-      </Text>
-      <Text style={styles.link} onPress={() => Linking.openURL('https://www.ejemplo.com/privacidad')}>
-        Política de Privacidad
-      </Text>
     </View>
   );
 };
@@ -29,7 +23,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     color: '#555',
     marginBottom: 15,
-    textAlign: 'justify',
+    textAlign: 'center',
   },
   versionText: {
     fontSize: 14,

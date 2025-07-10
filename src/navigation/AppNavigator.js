@@ -1,14 +1,11 @@
-// src/navigation/AppNavigator.js
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer"; // Importamos el Drawer Navigator
 
-// Importa tus pantallas
+
 import HomeScreen from "../screens/HomeScreen";
 import CityDetailScreen from "../screens/CityDetailScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import SettingsScreen from "../screens/SettingsScreen";
 import AboutScreen from "../screens/AboutScreen";
 import AddCityScreen from "../screens/AddCityScreen"; // ¡Importamos la nueva pantalla!
 
@@ -89,11 +86,6 @@ const AppNavigator = () => {
           name="AddCity" // Nueva entrada en el menú hamburguesa
           component={AddCityScreen}
           options={{ title: "Agregar Ciudad" }}
-        />
-        <Drawer.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{ title: "Ajustes" }}
         />
         <Drawer.Screen
           name="About"
