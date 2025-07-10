@@ -4,7 +4,6 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 const Card = ({ title, imageSource, description, onPress, onDelete }) => {
   return (
     <View style={styles.card}>
-     
       <TouchableOpacity onPress={onPress}>
         <Image source={imageSource} style={styles.image} />
       </TouchableOpacity>

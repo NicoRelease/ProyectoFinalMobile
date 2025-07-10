@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // Importamos useState y useEffect
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -11,7 +11,6 @@ import Card from "../components/Card";
 import { globalStyles } from "../styles/globalStyles";
 import Alertas from "../components/Alerta";
 
-// Datos de ejemplo iniciales para los lugares
 const initialPlaces = [
   {
     id: "1",
@@ -47,11 +46,10 @@ const initialPlaces = [
 ];
 
 const HomeScreen = ({ navigation, route }) => {
-  // Usamos useState para que la lista de lugares pueda ser actualizada
   const [places, setPlaces] = useState(initialPlaces);
 
-  const [alerta, setAlerta] = useState(false); // Alerta para borrar lugares
-  const [Delete, setDelete] = useState(null); // guarda la ciudad a eliminar
+  const [alerta, setAlerta] = useState(false);
+  const [Delete, setDelete] = useState(null);
 
   const handleConfirmDelete = () => {
     setPlaces((current) => current.filter((place) => place.id !== Delete.id));
@@ -63,7 +61,6 @@ const HomeScreen = ({ navigation, route }) => {
     setAlerta(true);
   };
 
-  // useEffect para escuchar cambios en los parámetros de la ruta (route.params)
   useEffect(() => {
     // Si hay un nuevo favorito en los parámetros de la ruta
     if (route.params?.newCity) {
@@ -79,7 +76,7 @@ const HomeScreen = ({ navigation, route }) => {
       // Esto es CRUCIAL para evitar que se añada el mismo favorito cada vez que se vuelve a la pantalla
       navigation.setParams({ newCity: undefined });
     }
-  }, [route.params?.newCity, places, navigation]); // Dependencias del useEffect
+  }, [route.params?.newCity, places, navigation]);
 
   return (
     <ScrollView style={globalStyles.container}>
@@ -90,7 +87,7 @@ const HomeScreen = ({ navigation, route }) => {
           key={place.id}
           title={place.name}
           imageSource={place.image}
-          description={place.description.substring(0, 70) + "..."} // Descripción corta
+          description={place.description.substring(0, 70) + "..."}
           onPress={() => navigation.navigate("CityDetail", { city: place })}
           onDelete={() => showDeleteAlert(place)}
         />

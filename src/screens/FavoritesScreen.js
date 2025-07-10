@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
-import { globalStyles } from '../styles/globalStyles';
+import React from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import { globalStyles } from "../styles/globalStyles";
 
 const favoritePlaces = [
-  { id: '1', name: 'París, Francia', description: 'La Ciudad del Amor.' },
-  { id: '5', name: 'Sídney, Australia', description: 'Famosa por su Ópera.' },
+  { id: "1", name: "París, Francia", description: "La Ciudad del Amor." },
+  { id: "5", name: "Sídney, Australia", description: "Famosa por su Ópera." },
 ];
 
 const FavoritesScreen = () => {
@@ -32,27 +32,27 @@ const FavoritesScreen = () => {
 const styles = StyleSheet.create({
   emptyText: {
     fontSize: 18,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 50,
-    color: '#888',
+    color: "#888",
   },
   favoriteItem: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 15,
     borderRadius: 8,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: "#ddd",
   },
   favoriteName: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 5,
-    color: '#333',
+    color: "#333",
   },
   favoriteDescription: {
     fontSize: 15,
-    color: '#666',
+    color: "#666",
   },
 });
 
