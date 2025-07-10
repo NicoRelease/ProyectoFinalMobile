@@ -1,19 +1,13 @@
-// src/navigation/AppNavigator.js
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer"; // Importamos el Drawer Navigator
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-// Importa tus pantallas
 import HomeScreen from "../screens/HomeScreen";
 import CityDetailScreen from "../screens/CityDetailScreen";
 import FavoritesScreen from "../screens/FavoritesScreen";
-import SettingsScreen from "../screens/SettingsScreen";
 import AboutScreen from "../screens/AboutScreen";
-import AddCityScreen from "../screens/AddCityScreen"; // ¡Importamos la nueva pantalla!
+import AddCityScreen from "../screens/AddCityScreen";
 
-// Creamos un Stack Navigator para las pantallas principales
-// Esto nos permitirá tener una barra superior estándar y el botón de retroceso
 const Stack = createNativeStackNavigator();
 
 function HomeStack() {
@@ -21,9 +15,9 @@ function HomeStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#6200ee", // Color de fondo del encabezado
+          backgroundColor: "#6200ee",
         },
-        headerTintColor: "#fff", // Color del texto del encabezado
+        headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
         },
@@ -34,8 +28,6 @@ function HomeStack() {
         component={HomeScreen}
         options={{
           title: "MiAppDeLugares",
-          // El botón de hamburguesa se añade automáticamente por el Drawer Navigator
-          // No necesitamos añadirlo aquí manualmente si esta pantalla es parte del Drawer
         }}
       />
       <Stack.Screen
@@ -54,31 +46,27 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Drawer.Navigator
-        initialRouteName="HomeStack" // La ruta inicial es nuestro Stack de Home
+        initialRouteName="HomeStack"
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#6200ee", // Color de fondo del encabezado del Drawer
+            backgroundColor: "#6200ee",
           },
-          headerTintColor: "#fff", // Color del texto del encabezado del Drawer
+          headerTintColor: "#fff",
           headerTitleStyle: {
             fontWeight: "bold",
           },
-          drawerActiveTintColor: "#6200ee", // Color del texto del item activo en el drawer
-          drawerInactiveTintColor: "#333", // Color del texto del item inactivo
+          drawerActiveTintColor: "#6200ee",
+          drawerInactiveTintColor: "#333",
           drawerLabelStyle: {
             fontSize: 18,
-            marginLeft: 10, // Ajustamos el margen a 50px a la izquierda
+            marginLeft: 10,
           },
         }}
       >
-        {/*
-          Cada <Drawer.Screen> representa un elemento en el menú hamburguesa.
-          Puedes apuntar a un Stack Navigator completo o a una pantalla individual.
-        */}
         <Drawer.Screen
-          name="HomeStack" // Este es el nombre que aparecerá en el drawer
+          name="HomeStack"
           component={HomeStack}
-          options={{ title: "Inicio" }} // Título del elemento en el menú del drawer
+          options={{ title: "Inicio" }}
         />
         <Drawer.Screen
           name="Favorites"
@@ -86,14 +74,9 @@ const AppNavigator = () => {
           options={{ title: "Mis Favoritos" }}
         />
         <Drawer.Screen
-          name="AddCity" // Nueva entrada en el menú hamburguesa
+          name="AddCity"
           component={AddCityScreen}
           options={{ title: "Agregar Ciudad" }}
-        />
-        <Drawer.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{ title: "Ajustes" }}
         />
         <Drawer.Screen
           name="About"
